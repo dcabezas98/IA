@@ -36,17 +36,19 @@
 
   <!-- Pregunta 4: Cuales son tus 3 mayores virtudes -->
   <category>
-    <pattern>Cuales son tus ([3 tres]) (mayores) virtudes</pattern> <!-- Pueden preguntarme por mis virtudes y que diga 3 -->
-    <template>Soy muy original a la hora de buscar soluciones y podria aportar nuevas perspectivas, me encanta aprender cosas nuevas y me adapto bien a los cambios.</template>
+    <pattern>Cuales son tus ([3 tres]) (mayores) virtudes</pattern>
+    <template>Soy muy original a la hora de buscar soluciones y podria aportar nuevas perspectivas, me encanta aprender cosas nuevas y me adapto bien a los cambios.
+    </template>
   </category>
 
-  <!-- Pregunta 5: Te consideras preparado para desempenar las funciones de este puesto -->
+  <!-- Pregunta 5: Te consideras preparado para desempeñar las funciones de este puesto -->
   <category>
-    <pattern>Te consideras preparado para (desempenar las funciones de este) puesto</pattern>
-    <template>He desempeñado anteriormente trabajos similares y he sido bastante capaz, no estoy familiarizado con algunos aspectos pero no creo que me supongan problema.</template>
+    <pattern>Te consideras preparado para (desempeñar las funciones de este) puesto</pattern>
+    <template>He desempeñado anteriormente trabajos similares y he sido bastante capaz, no estoy familiarizado con algunos aspectos pero no creo que me supongan problema.
+    </template>
   </category>
 
-  <!-- Pregunta 6: Tienes experiencia en la realizacion de proyectos en equipos de trabajo -->
+  <!-- Pregunta 6: Te consideras preparado para desempeñar las funciones de este puesto -->
   <category>
     <pattern>Tienes experiencia en la realizacion de proyectos en equipos de trabajo</pattern>
     <template><srai>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</srai></template>
@@ -54,143 +56,78 @@
 
   <category>
     <pattern>Tienes experiencia trabajando en equipo</pattern>
-    <template>He trabajado en varios equipos con resultados mas que aceptables.></template>
+    <template><srai>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</srai></template>
+  </category>
+
+  <category>
+    <pattern>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</pattern>
+    <template>He trabajado en varios equipos con resultados mas que aceptables.</template>
   </category>
 
   <!-- Pregunta 7: Realizarias un trabajo que no fuera con tu especialidad -->
+  <category>
+    <pattern>Podrias realizar un trabajo que no fuera con tu especialidad</pattern>
+    <template><srai>REALIZARIAS UN TRABAJO QUE NO FUERA CON TU ESPECIALIDAD</srai></template>
+  </category>
+
   <category>
     <pattern>Realizarias un trabajo que no fuera con tu especialidad</pattern>
     <template>Tengo bastante facilidad para adaptarme y aprender, y le daria una oportunidad a cualquier puesto en que despertara mi interes</template>
   </category>
 
-  <template>
-    <random>
-      <li>Soy un poco lento trabajando.</li>
-      <li>Prefiero trabajar <!-- Pregunta 1: Hablame un poco de ti -->
-<category>
-<pattern>[Cuentame Hablame] (un poco) [sobre de] ti</pattern>
-<template><srai>HABLAME DE TI</srai></template>
-</category>
+  <!-- Pregunta 8: Te desplazarias de manera ocasional a otros lugares -->
+  <category>
+    <pattern>Te desplazarias de manera ocasional a otros [sitios lugares]</pattern>
+    <template>No creo que tuviera ningún problema, quiza pudiera tener dificultades si el periodo es superior a una semana</template>
+  </category>
 
-<category>
-<pattern>[Cuentame Hablame] (algo) [sobre de] ti</pattern>
-<template><srai>HABLAME DE TI</srai></template>
-</category>
+  <!-- Pregunta 9: Te consideras una persona creativa -->
+  <category>
+    <pattern>Te consideras una persona creativa</pattern>
+    <template>Si, suelo tener facilidad para enfocar los problemas de diferentes perspectivas y pensar soluciones originales</template>
+  </category>
 
-<category>
-<pattern>Cuentame (cosas) [sobre de] ti</pattern>
-<template><srai>HABLAME DE TI</srai></template>
-</category>
+  <!-- Pregunta 10: Que expectativas tienes de este trabajo -->
+  <category>
+    <pattern>Que expectativas tienes de este trabajo</pattern>
+    <template>Considero que el puesto me permitira crecer y aprender mucho. Tambien, creo que es una empresa que cuida mucho el ambiente de trabajo, y podria sentirme comodo como para trabajar en ella indefinidamente</template>
+  </category>
 
-<category>
-<pattern>HABLAME DE TI</pattern>
-<template>Pues tengo 4 anios de experiencia en el sector, y estuve 6 meses haciendo practicas en una empresa en el estranjero.</template>
-</category>
+  <!-- Pregunta 11: Que trabajos has tenido en esta tematica -->
+  <category>
+    <pattern>Que [trabajos tareas puestos profesiones] has [tenido desempenado] en esta tematica</pattern>
+    <template>En mi periodo de practicas asisti en esta profesion y luego estuve desempenando un traba similar durante un anio.</template>
+  </category>
 
-<!-- Pregunta 2: Cual es tu mayor defecto -->
-<category>
-<pattern>Cual es tu mayor defecto</pattern>
-<template>No trabajo bien bajo presion.</template>
-</category>
+  <!-- Pregunta 12: Normalmente te llevas el trabajo a casa -->
+  <category>
+    <pattern>[Normalmente] te llevas el trabajo a casa</pattern>
+    <template>No tendria problema en hacerlo puntual o exceptionalmente.</template>
+  </category>
 
-<!-- Pregunta 3: Que aspectos no te gustan de un jefe -->
-<category>
-<pattern>Que [aspectos cosas actitudes] no te gustan de un jefe</pattern>
-<template>He trabajado con varios jefes y con diferentes metodologías de trabajo, pero en general me adapto a cualquier metodología.</template>
-</category>
+  <!-- Pregunta 13: Cuales son tus aspiraciones salariales -->
+  <category>
+    <pattern>Cuales son tus aspiraciones salariales</pattern>
+    <template>A corto plazo me conformo con un sueldo medio, aunque espero ir escalando y llegar a cobrar 5 cifras mensuales.</template>
+  </category>
 
-<!-- Pregunta 4: Cuales son tus 3 mayores virtudes -->
-<category>
-<pattern>Cuales son tus ([3 tres]) (mayores) virtudes</pattern> <!-- Pueden preguntarme por mis virtudes y que diga 3 -->
-  <template>Soy muy original a la hora de buscar soluciones y podria aportar nuevas perspectivas, me encanta aprender cosas nuevas y me adapto bien a los cambios.
-  </template>
-</category>
+  <!-- Pregunta 14: Donde te ves dentro de cinco anios -->
+  <category>
+    <pattern>Donde te ves dentro de [cinco 5] anios</pattern>
+    <template><srai>DONDE TE VES EN CINCO ANIO</srai></template>
+  </category>
 
-<!-- Pregunta 5: Te consideras preparado para desempeñar las funciones de este puesto -->
-<category>
-<pattern>Te consideras preparado para (desempeñar las funciones de este) puesto</pattern>
-<template>He desempeñado anteriormente trabajos similares y he sido bastante capaz, no estoy familiarizado con algunos aspectos pero no creo que me supongan problema.
-</template>
-</category>
+  <category>
+    <pattern>Donde te ves en [cinco 5] anios</pattern>
+    <template>Espero que dirigiendo mi propio equipo en esta misma empresa.</template>
+  </category>
 
-<!-- Pregunta 6: Te consideras preparado para desempeñar las funciones de este puesto -->
-<category>
-  <pattern>Tienes experiencia en la realizacion de proyectos en equipos de trabajo</pattern>
-  <template><srai>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</srai></template>
-</category>
+  <!-- Pregunta 15: No tienes experiencia para el puesto a desempenar -->
+  <category> 
+    <pattern>No tienes experiencia ^</pattern>
+    <template>Tengo titulacion mas que sufiente y muy buenas calificaciones. Ademas, soy muy bueno aprendiendo y adaptandome a diferentes situaciones.</template>
+  </category>
 
-<category>
-  <pattern>Tienes experiencia trabajando en equipo</pattern>
-  <template><srai>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</srai></template>
-</category>
-
-<category>
-  <pattern>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</pattern>
-  <template>He trabajado en varios equipos con resultados mas que aceptables.</template>
-</category>
-
-<!-- Pregunta 7: Realizarias un trabajo que no fuera con tu especialidad -->
-<category>
-  <pattern>Podrias realizar un trabajo que no fuera con tu especialidad</pattern>
-  <template><srai>REALIZARIAS UN TRABAJO QUE NO FUERA CON TU ESPECIALIDAD</srai></template>
-</category>
-
-<category>
-  <pattern>Realizarias un trabajo que no fuera con tu especialidad</pattern>
-  <template>Tengo bastante facilidad para adaptarme y aprender, y le daria una oportunidad a cualquier puesto en que despertara mi interes</template>
-</category>
-
-<!-- Pregunta 8: Te desplazarias de manera ocasional a otros lugares -->
-<category>
-  <pattern>Te desplazarias de manera ocasional a otros [sitios lugares]</pattern>
-  <template>No creo que tuviera ningún problema, quiza pudiera tener dificultades si el periodo es superior a una semana</template>
-</category>
-
-<!-- Pregunta 9: Te consideras una persona creativa -->
-<category>
-  <pattern>Te consideras una persona creativa</pattern>
-  <template>Si, suelo tener facilidad para enfocar los problemas de diferentes perspectivas y pensar soluciones originales</template>
-</category>
-
-<!-- Pregunta 10: Que expectativas tienes de este trabajo -->
-<category>
-  <pattern>Que expectativas tienes de este trabajo</pattern>
-  <template>Considero que el puesto me permitira crecer y aprender mucho. Tambien, creo que es una empresa que cuida mucho el ambiente de trabajo, y podria sentirme comodo como para trabajar en ella indefinidamente</template>
-</category>
-
-<!-- Pregunta 11: Que trabajos has tenido en esta tematica -->
-<category>
-  <pattern>Que [trabajos tareas puestos profesiones] has [tenido desempenado] en esta tematica</pattern>
-  <template>En mi periodo de practicas asisti en esta profesion y luego estuve desempenando un traba similar durante un anio.</template>
-</category>
-
-<!-- Pregunta 12: Normalmente te llevas el trabajo a casa -->
-<category>
-  <pattern>[Normalmente] te llevas el trabajo a casa</pattern>
-  <template>No tendria problema en hacerlo puntual o exceptionalmente.</template>
-</category>
-
-<!-- Pregunta 13: Cuales son tus aspiraciones salariales -->
-<category>
-  <pattern>Cuales son tus aspiraciones salariales</pattern>
-  <template>A corto plazo me conformo con un sueldo medio, aunque espero ir escalando y llegar a cobrar 5 cifras mensuales.</template>
-</category>
-
-<!-- Pregunta 14: Donde te ves dentro de cinco anios -->
-<category>
-  <pattern>Donde te ves dentro de [cinco 5] anios</pattern>
-  <template><srai>DONDE TE VES EN CINCO ANIO</srai></template>
-</category>
-
-<category>
-  <pattern>Donde te ves en [cinco 5] anios</pattern>
-  <template>Espero que dirigiendo mi propio equipo en esta misma empresa.</template>
-</category>
-
-<!-- Pregunta 15: No tienes experiencia para el puesto a desempenar -->
-<category> 
-  <pattern>No tienes experiencia^</pattern>
-  <template>Tengo titulacion mas que sufiente y muy buenas calificaciones. Ademas, soy muy bueno aprendiendo y adaptandome a diferentes situaciones.</template>
-</category>
+  
 
 </aiml>
