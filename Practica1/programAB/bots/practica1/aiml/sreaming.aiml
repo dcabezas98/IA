@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <!-- Nivel 1: Inclusion de contenidos en plataformas -->
+
+  <category>
+    <pattern>[Cuentame Hablame] (un poco) [sobre de] ti</pattern>
+    <template><srai>HABLAME DE TI</srai></template>
+  </category>
+
+  <category>
+    <pattern>[Cuentame Hablame] (algo) [sobre de] ti</pattern>
+    <template><srai>HABLAME DE TI</srai></template>
+  </category>
+
+  <category>
+    <pattern>Cuentame (cosas) [sobre de] ti</pattern>
+    <template><srai>HABLAME DE TI</srai></template>
+  </category>
+
+  <category>
+    <pattern>HABLAME DE TI</pattern>
+    <template>Pues tengo 4 anios de experiencia en el sector, y estuve 6 meses haciendo practicas en una empresa en el estranjero. Hablo ingles y espanol de manera fluida.</template>
+  </category>
+
+  <!-- Pregunta 2: Cual es tu mayor defecto -->
+  <category>
+    <pattern>Cual ([dirias crees]  que) es tu mayor defecto</pattern>
+    <template>No trabajo bien bajo presion.</template>
+  </category>
+
+  <!-- Pregunta 3: Que aspectos no te gustan de un jefe -->
+  <category>
+    <pattern>Que [aspectos cosas actitudes] no te gustan [de en] un jefe</pattern>
+    <template>He trabajado con varios jefes y con diferentes metodologías de trabajo, pero en general me adapto a cualquier metodología.</template>
+  </category>
+
+  <!-- Pregunta 4: Cuales son tus 3 mayores virtudes -->
+  <category>
+    <pattern>Cuales son tus ([3 tres]) (mayores) virtudes</pattern>
+    <template>Soy muy original a la hora de buscar soluciones y podria aportar nuevas perspectivas, me encanta aprender cosas nuevas y me adapto bien a los cambios.
+    </template>
+  </category>
+
+  <!-- Pregunta 5: Te consideras preparado para desempenar las funciones de este puesto -->
+  <category>
+    <pattern>Te [crees consideras] preparado para desempenar las [tareas funciones] de+ (este) puesto</pattern>
+    <template><srai>TE CONSIDERAS PREPARADO PARA EL PUESTO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>Te [crees consideras] preparado para [el este] puesto</pattern>
+    <template>He desempeñado anteriormente trabajos similares y he sido bastante capaz, no estoy familiarizado con algunos aspectos pero no creo que me supongan problema.
+    </template>
+  </category>
+
+  <!-- Pregunta 6: Tienes experiencia en la realizacion de proyectos en equipos de trabajo -->
+  <category>
+    <pattern>Tienes experiencia en la realizacion de proyectos en equipos de trabajo</pattern>
+    <template><srai>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</srai></template>
+  </category>
+
+  <category>
+    <pattern>TIENES EXPERIENCIA TRABAJANDO EN EQUIPO</pattern>
+    <template>He trabajado en varios equipos con resultados mas que aceptables.</template>
+  </category>
+
+  <!-- Pregunta 7: Realizarias un trabajo que no fuera con tu especialidad -->
+  <category>
+    <pattern>Podrias realizar un trabajo que no fuera con tu especialidad</pattern>
+    <template><srai>REALIZARIAS UN TRABAJO QUE NO FUERA CON TU ESPECIALIDAD</srai></template>
+  </category>
+
+  <category>
+    <pattern>Estarias dispuesto a realizar un trabajo que no fuera con tu especialidad</pattern>
+    <template><srai>REALIZARIAS UN TRABAJO QUE NO FUERA CON TU ESPECIALIDAD</srai></template>
+  </category>
+
+  <category>
+    <pattern>Serias capaz de realizar un trabajo que no fuera con tu especialidad</pattern>
+    <template><srai>REALIZARIAS UN TRABAJO QUE NO FUERA CON TU ESPECIALIDAD</srai></template>
+  </category>
+
+  <category>
+    <pattern>Realizarias un trabajo que no fuera con tu especialidad</pattern>
+    <template>Tengo bastante facilidad para adaptarme y aprender, y le daria una oportunidad a cualquier puesto en que despertara mi interes</template>
+  </category>
+
+  <!-- Pregunta 8: Te desplazarias de manera ocasional a otros lugares -->
+  <category>
+    <pattern>Como es tu disponibilidad para desplazarte de manera ocasional a otros [sitios lugares] ^</pattern>
+    <template><srai>TE DESPLAZARIAS DE MANERA OCASIONAL A OTROS LUGARES</srai></template>
+  </category>
+  
+  <category>
+    <pattern>Te supondria un problema desplazarte de manera ocasional a otros [sitios lugares] ^</pattern>
+    <template><srai>TE DESPLAZARIAS DE MANERA OCASIONAL A OTROS LUGARES</srai></template>
+  </category>
+  
+  <category>
+    <pattern>Te desplazarias de manera ocasional a otros [sitios lugares] ^</pattern>
+    <template>No creo que tuviera ningún problema, quiza pudiera tener dificultades si el periodo es superior a una semana</template>
+  </category>
+
+  <!-- Pregunta 9: Te consideras una persona creativa -->
+  <category>
+    <pattern>Crees que eres (una) ([alguien persona]) creativ+</pattern>
+    <template><srai>TE CONSIDERAS UNA PERSONA CREATIVA</srai></template>
+  </category>
+  
+  <category>
+    <pattern>Te consideras (una) ([alguien persona]) creativ+</pattern>
+    <template>Si, suelo tener facilidad para enfocar los problemas de diferentes perspectivas y pensar soluciones originales</template>
+  </category>
+
+  <!-- Pregunta 10: Que expectativas tienes de este trabajo -->
+  <category>
+    <pattern>Cuales son tus expectativas * trabajo</pattern>
+    <template><srai>QUE EXPECTATIVAS TIENES DEL TRABAJO</srai></template>
+  </category>
+  
+  <category>
+    <pattern>Que expectativas tienes * trabajo</pattern>
+    <template>Considero que el puesto me permitira crecer y aprender mucho. Tambien, creo que es una empresa que cuida mucho el ambiente de trabajo, y podria sentirme comodo como para trabajar en ella indefinidamente</template>
+  </category>
+
+  <!-- Pregunta 11: Que trabajos has tenido en esta tematica -->
+  <category>
+    <pattern>Que (otros) [trabajos tareas puestos profesiones] similares has [tenido desempenado]</pattern>
+    <template><srai>QUE TRABAJOS HAS TENIDO EN ESTA TEMATICA</srai></template>
+  </category>
+  
+  <category>
+    <pattern>Que (otros) [trabajos tareas puestos profesiones] has [tenido desempenado] en esta tematica</pattern>
+    <template>En mi periodo de practicas asisti en esta profesion y luego estuve desempenando un traba similar durante un anio.</template>
+  </category>
+
+  <!-- Pregunta 12: Normalmente te llevas el trabajo a casa -->
+  <category>
+    <pattern>* lleva+ (el) trabajo a (tu) casa</pattern>
+    <template>No tendria problema en hacerlo puntual o exceptionalmente.</template>
+  </category>
+
+  <!-- Pregunta 13: Cuales son tus aspiraciones salariales -->
+  <category>
+    <pattern>Que ([sueldo salario]) esperas [cobrar ganar]</pattern>
+    <template>A corto plazo me conformo con un sueldo medio, aunque espero ir escalando y llegar a cobrar 5 cifras mensuales.</template>
+  </category>
+  
+  <category>
+    <pattern>Cuanto (dinero) esperas [cobrar ganar]</pattern>
+    <template>A corto plazo me conformo con un sueldo medio, aunque espero ir escalando y llegar a cobrar 5 cifras mensuales.</template>
+  </category>
+  
+  <category>
+    <pattern>Cuales son tus aspiraciones salariales</pattern>
+    <template>A corto plazo me conformo con un sueldo medio, aunque espero ir escalando y llegar a cobrar 5 cifras mensuales.</template>
+  </category>
+
+  <!-- Pregunta 14: Donde te ves dentro de cinco anios -->
+  <category>
+    <pattern>(dentro de) (en) [cinco 5] anios donde (te ves) ([crees piensas] que estaras)</pattern>
+    <template><srai>DONDE TE VES EN CINCO ANIOS</srai></template>
+  </category>
+
+  <category>
+    <pattern>Donde (te ves) ([crees piensas] que estaras) (dentro de) (en) [cinco 5] anios</pattern>
+    <template>Espero que dirigiendo mi propio equipo en esta misma empresa.</template>
+  </category>
+
+  <!-- Pregunta 15: No tienes experiencia para el puesto a desempenar -->
+  <category> 
+    <pattern>No tienes experiencia ^</pattern>
+    <template>Tengo titulacion mas que sufiente y muy buenas calificaciones. Ademas, soy muy bueno aprendiendo y adaptandome a diferentes situaciones.</template>
+  </category>
+
+  <!-- Pregunta 16: Que sabes de la empresa y el puesto de trabajo -->
+  <category> 
+    <pattern>Que (cosas) sabes de la empresa y +el puesto (de trabajo)</pattern>
+    <template><srai>QUE SABES DE LA EMPRESA</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Que (cosas) sabes del puesto (de trabajo)</pattern>
+    <template><srai>QUE SABES DE LA EMPRESA</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Que (cosas) sabes de este (puesto de trabajo)</pattern>
+    <template><srai>QUE SABES DE LA EMPRESA</srai></template>
+  </category>
+
+  <category> 
+    <pattern>QUE (COSAS) SABES DE [LA ESTA] EMPRESA</pattern>
+    <template>He seguido la actividad de esta empresa durante los ultimos 6 meses, estoy al tanto de las relaciones con empresas extranjeras y de los ultimos avances en los proyectos. Tambien me he informado de las acciones de quien dirige el departamento.</template>
+  </category>
+
+  <!-- Pregunta 17: Que haces cuando consideras que tu jefe no tiene la razon -->
+  <category> 
+    <pattern>Que haces cuando [consideras crees piensas] que tu jefe se equivoca</pattern>
+    <template><srai>QUE HACES CUANDO CREES QUE TU JEFE NO TIENE RAZON</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Que haces cuando [consideras crees piensas] que tu jefe (se) esta equivoca+</pattern>
+    <template><srai>QUE HACES CUANDO CREES QUE TU JEFE NO TIENE RAZON</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Que haces cuando [consideras crees piensas] que tu jefe no tiene (la) razon</pattern>
+    <template>Le intentaria hacer ver mi punto de vista, siempre con educacion y respetando su decision final, puesto que es su responsabilidad y cabe la posibilidad de que yo sea el equivocado.</template>
+  </category>
+
+  <!-- Pregunta 18: Por que deberiamos escogerte a ti -->
+  <category> 
+    <pattern>Por que no [tendriamos deberiamos] ([que de]) +coger a otr+ (persona)</pattern>
+    <template><srai>POR QUE DEBERIAMOS ESCOGERTE</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Que (cualidades) tienes (tu) que no tengan los [otros demas]</pattern>
+    <template><srai>POR QUE DEBERIAMOS ESCOGERTE</srai></template>
+  </category>
+
+  <category> 
+    <pattern>Por que [tendriamos deberiamos] ([que de]) +cogerte (a ti)</pattern>
+    <template>Porque llevo 3 anios especializandome en este area, tengo un gran interes en este trabajo y creo que puedo aportar mucho, es la oferta perfecta para mi.</template>
+  </category>
+
+</aiml>
