@@ -1,7 +1,7 @@
 genero:drama@crimen@biografia 
 idiomas:espanol@ingles
 subtitulos:espanol@ingles
-sinopsis:Narcos_es_una_serie_de_ficcion_historica_basada_en_la_lucha_contra_el_narcotrafico_en_Colombia_durante_los_anios_1990
+sinopsis:Narcos_es_una_serie_de_ficcion_historica_basada_en_la_lucha_contra_el_narcotrafico_en_Colombia_durante_los_anios_1990.
 web:www.netflix.com/es-en/title/80025172
-temporada1:Descenso@57@La espada de simon bolivar@47@Los hombres de siempre@47@El palacio en llamas@44@Habrá futuro@55@Explosivos@50@Lloraras lagrimas de sangre@51@La gran mentira@51@La catedral 51@@Despegue@45
-temporada2:Por fin libre@53@Cambalache@47@Nuestro hombre en madrid@47@El bueno el malo y el muerto@56
+temporada1:Descenso@57@La_espada_de_simon_bolivar@47@Los_hombres_de_siempre@47@El_palacio_en_llamas@44@Habrá_futuro@55@Explosivos@50@Lloraras_lagrimas_de_sangre@51@La_gran_mentira@51@La_catedral_51@@Despegue@45
+temporada2:Por_fin_libre@53@Cambalache@47@Nuestro_hombre_en_madrid@47@El_bueno_el_malo_y_el_muerto@56

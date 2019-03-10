@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  
+<!-- Consultar sinopsis -->
+  <category>
+    <pattern>De que va (la serie) <set>seriesnetflix</set></pattern>
+    <template><srai>DECODE <map><name><star/></name>sinopsis</map></srai></template>
+  </category>
+
+  <category>
+    <pattern>De que va (la serie) *</pattern>
+    <template>
+      <think>
+	<set name="tituloserie"><star/></set>
+	<set name="topic">anadirserie</set>
+      </think>
+      La serie <get name="tituloserie"/> no esta en el catalogo. Quieres anadirla?
+    </template>
+  </category>
+
+<!-- Anadir serie -->
+  <topic name="anadirserie">
+  
+  <category>
+    <pattern>^ Si ^</pattern>
+    <template>
+     Ok, crea en la carpeta maps un archivo llamado <get name="tituloserie"/>.txt. Cuando hayas terminado reiniciame y al volver, pideme que anada la serie <get name="tituloserie"/>.
+    </template>
+  </category>
+
+  </topic>
+
+  <category>
+    <pattern>Anade (la serie) *</pattern>
+    <template>
+      <think><set name="tituloserie"><star/></set></think>
+      Perfecto, te voy a preguntar datos sobre la serie <get name="tituloserie"/>. Indicame que plataforma la ofrece.
+      <think><set name="topic">plataforma</set></think>
+    </template>
+  </category>
+  
+  <topic name="plataforma">
+    
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<think>
+	  <set var="plataforma"><star/></set>
+	  <condition var="plataforma">
+	    <li value="netflix">
+	      <set var="fichero">seriesnetflix</set>
+	      <set var="estado">correcto</set>
+	    </li>
+	    <li value="prime video">
+	      <set var="fichero">seriesprimevideo</set>
+	      <set var="estado">correcto</set>
+	    </li>
+	    <li><set var="estado">error</set></li>
+	  </condition>
+	</think>
+
+	<condition var="estado">
+	  <li value="correcto">
+	    <addtoset>
+	      <name><get var="fichero"/></name>
+	      <key><get name="tituloserie"/></key>
+	    </addtoset>
+	    Muy bien, dime a que genero pertenece.
+	    <think><set name="topic">genero</set></think>
+	  </li>
+	  <li>Lo siento, solo conozco las plataformas Netflix y Prime Video.</li>
+	</condition>
+      </template>
+    </category>     
+
+  </topic>
+
+  <topic name="genero">
+
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<addtomap>
+	  <name><get name="tituloserie"/></name>
+	  <key>genero</key>
+	  <value><srai>CODE <star/></srai></value>
+	</addtomap>
+	Dime de que que va la serie.
+	<think><set name="topic">sinopsis</set></think>
+      </template>
+    </category>
+
+  </topic>
+
+  <topic name="sinopsis">
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<addtomap>
+	  <name><get name="tituloserie"/></name>
+	  <key>sinopsis</key>
+	  <value><srai>CODE <star/></srai></value>
+	</addtomap>
+	Dime la lista de idiomas en los que esta disponible el audio de la serie.
+	<think><set name="topic">sinopsis</set></think>
+      </template>
+    </category>
+  </topic>
+
+  
+</aiml>
