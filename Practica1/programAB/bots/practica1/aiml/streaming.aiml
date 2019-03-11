@@ -20,14 +20,12 @@
 
 <!-- Anadir serie -->
   <topic name="anadirserie">
-  
   <category>
     <pattern>^ Si ^</pattern>
     <template>
      Ok, crea en la carpeta maps un archivo llamado <get name="tituloserie"/>.txt. Cuando hayas terminado reiniciame y al volver, pideme que anada la serie <get name="tituloserie"/>.
     </template>
   </category>
-
   </topic>
 
   <category>
@@ -40,7 +38,6 @@
   </category>
   
   <topic name="plataforma">
-    
     <category>
       <pattern>*</pattern>
       <template>
@@ -72,11 +69,9 @@
 	</condition>
       </template>
     </category>     
-
   </topic>
 
   <topic name="genero">
-
     <category>
       <pattern>*</pattern>
       <template>
@@ -89,7 +84,6 @@
 	<think><set name="topic">sinopsis</set></think>
       </template>
     </category>
-
   </topic>
 
   <topic name="sinopsis">
@@ -102,10 +96,96 @@
 	  <value><srai>CODE <star/></srai></value>
 	</addtomap>
 	Dime la lista de idiomas en los que esta disponible el audio de la serie.
-	<think><set name="topic">sinopsis</set></think>
+	<think><set name="topic">idiomas</set></think>
       </template>
     </category>
   </topic>
 
+  <topic name="idiomas">
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<addtomap>
+	  <name><get name="tituloserie"/></name>
+	  <key>idiomas</key>
+	  <value><srai>CODE <star/></srai></value>
+	</addtomap>
+	Dime la lista de subtitulos en los que esta disponible la serie.
+	<think><set name="topic">subtitulos</set></think>
+      </template>
+    </category>
+  </topic>
+
+  <topic name="subtitulos">
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<addtomap>
+	  <name><get name="tituloserie"/></name>
+	  <key>subtitulos</key>
+	  <value><srai>CODE <star/></srai></value>
+	</addtomap>
+	Si conoces una direccion web de la serie indicamela.
+	<think><set name="topic">web</set></think>
+      </template>
+    </category>
+  </topic>
+
+  <topic name="web">
+    <category>
+      <pattern>^ www+</pattern>
+      <template>
+	<addtomap>
+	  <name><get name="tituloserie"/></name>
+	  <key>web</key>
+	  <value><star/></value>
+	</addtomap>
+	Ya he creado la informacion basica de la serie, si quieres anadir capitulos me lo dices.
+	<think><set name="topic">capitulos</set></think>
+      </template>
+    </category>
+
+    <category>
+      <pattern>^ no ^</pattern>
+      <template>
+	Ya he creado la informacion basica de la serie, si quieres anadir capitulos me lo dices.
+	<think><set name="topic">capitulos</set></think>
+      </template>
+    </category>
+  </topic>
+
+  <topic name="capitulos">
+    <category>
+      <pattern>^ [si vale ok] ^</pattern>
+      <template>
+	Anadiendo capitulo a la temporada 1 de <get name="tituloserie"/>
+	<srai>Introduce un nuevo capitulo de la temporada 1 de <get name="tituloserie"/></srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>^ no ^</pattern>
+      <template>
+	Ok.
+	<think><set name="topic">unknown</set></think>
+      </template>
+    </category>
+  </topic>
+
+  <!-- Anadir capiulo -->
+  <category>
+    <pattern>[Anade Introduce] un nuevo capitulo de la temporada <set>number</set> de [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
+    <template>
+      <think><set name="topic">titcap</set></think>
+      
+    </template>
+  </category>
+
+  <category>
+    <pattern>[Anade Introduce] un nuevo capitulo de la temporada <set>number</set> de *</pattern>
+    <template>
+      La serie <star/> no esta en el catalogo.
+    </template>
+  </category>
   
 </aiml>
