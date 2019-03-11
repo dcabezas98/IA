@@ -26,13 +26,22 @@
      Ok, crea en la carpeta maps un archivo llamado <get name="tituloserie"/>.txt. Cuando hayas terminado reiniciame y al volver, pideme que anada la serie <get name="tituloserie"/>.
     </template>
   </category>
+
+  <category>
+    <pattern>^ no ^</pattern>
+    <template>
+      Ok.
+      <think><set name="topic">anadirserie</set></think>
+    </template>
+  </category>
   </topic>
 
   <category>
     <pattern>Anade la serie *</pattern>
     <template>
       <think><set name="tituloserie"><star/></set></think>
-      Perfecto, te voy a preguntar datos sobre la serie <get name="tituloserie"/>. Indicame que plataforma la ofrece.
+      Asegurate de haber creado un archivo llamado <get name="tituloserie"/> en la carpeta maps.
+      Te voy a preguntar datos sobre la serie <get name="tituloserie"/>. Indicame que plataforma la ofrece.
       <think><set name="topic">plataforma</set></think>
     </template>
   </category>
@@ -133,7 +142,7 @@
 
   <topic name="web">
     <category>
-      <pattern>^ www+</pattern>
+      <pattern>www+</pattern>
       <template>
 	<addtomap>
 	  <name><get name="tituloserie"/></name>
@@ -235,7 +244,7 @@
 	<modifymap>
 	  <name><get name="tituloserie"/></name>
 	  <key>temporada<get name="temporada"/></key>
-	  <value><map><name><get name="tituloserie"/></name>temporada<get name="temporada"/></map><get name="primero"/><get name="titulo"/>@<get name="duracion"/></value>
+	  <value><srai> CODE <map><name><get name="tituloserie"/></name>temporada<get name="temporada"/></map><get name="primero"/><get name="titulo"/></srai>@<get name="duracion"/></value>
 	</modifymap>
       </template>
     </category>
