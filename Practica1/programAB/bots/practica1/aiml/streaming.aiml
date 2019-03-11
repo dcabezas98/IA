@@ -3,12 +3,12 @@
   
 <!-- Consultar sinopsis -->
   <category>
-    <pattern>De que va (la serie) <set>seriesnetflix</set></pattern>
+    <pattern>De que [va trata] (la serie) <set>seriesnetflix</set></pattern>
     <template><srai>DECODE <map><name><star/></name>sinopsis</map></srai></template>
   </category>
 
   <category>
-    <pattern>De que va (la serie) *</pattern>
+    <pattern>De que [va trata] (la serie) *</pattern>
     <template>
       <think>
 	<set name="tituloserie"><star/></set>
@@ -21,7 +21,7 @@
 <!-- Anadir serie -->
   <topic name="anadirserie">
   <category>
-    <pattern>^ Si ^</pattern>
+    <pattern>^ [si vale ok] ^</pattern>
     <template>
      Ok, crea en la carpeta maps un archivo llamado <get name="tituloserie"/>.txt. Cuando hayas terminado reiniciame y al volver, pideme que anada la serie <get name="tituloserie"/>.
     </template>
@@ -29,7 +29,7 @@
   </topic>
 
   <category>
-    <pattern>Anade (la serie) *</pattern>
+    <pattern>Anade la serie *</pattern>
     <template>
       <think><set name="tituloserie"><star/></set></think>
       Perfecto, te voy a preguntar datos sobre la serie <get name="tituloserie"/>. Indicame que plataforma la ofrece.
@@ -158,7 +158,7 @@
     <category>
       <pattern>^ [si vale ok] ^</pattern>
       <template>
-	Anadiendo capitulo a la temporada 1 de <get name="tituloserie"/>
+	Anadiendo capitulo a la temporada 1 de <get name="tituloserie"/>.
 	<srai>Introduce un nuevo capitulo de la temporada 1 de <get name="tituloserie"/></srai>
       </template>
     </category>
@@ -174,18 +174,71 @@
 
   <!-- Anadir capiulo -->
   <category>
-    <pattern>[Anade Introduce] un nuevo capitulo de la temporada <set>number</set> de [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
+    <pattern>[Anade Introduce] un (nuevo) capitulo [de a en] la temporada <set>number</set> de [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
     <template>
-      <think><set name="topic">titcap</set></think>
-      
+      <think>
+	<set name="topic">titcap</set>
+	<set name="tituloserie"><star index="2"/></set>
+	<set name="temporada"><star index="1"/></set>
+	<set name="actual"><map><name><get name="tituloserie"/></name>temporada<get name="temporada"/></map></set>
+	<condition name="actual">
+	<li value="unknown">
+	  <set name="primero"></set>
+	  <addtomap>
+	    <name><get name="tituloserie"/></name>
+	    <key>temporada<get name="temporada"/></key>
+	    <value></value>
+	  </addtomap>
+	</li>
+	<li><set name="primero">@</set></li>
+	</condition>
+      </think>
+      Dime el titulo del capitulo.
     </template>
   </category>
 
+  
   <category>
     <pattern>[Anade Introduce] un nuevo capitulo de la temporada <set>number</set> de *</pattern>
     <template>
-      La serie <star/> no esta en el catalogo.
+      <think>
+      <set name="tituloserie"><star/></set>
+      <set name="topic">anadirserie</set>
+      La serie <get name="tituloserie"/> no esta en el catalogo. Quieres anadirla?
+      </think>
     </template>
   </category>
+  
+
+  <topic name="titcap">
+    <category>
+      <pattern>*</pattern>
+      <template>
+	<think>
+	<set name="titulo"><star/></set>
+	<set name="topic">durcap</set>
+	</think>
+	Dime la duracion del capitulo.
+      </template>
+    </category>
+  </topic>
+
+  <topic name="durcap">
+    <category>
+      <pattern><set>number</set></pattern>
+      <template>
+	<think>
+	<set name="duracion"><star/></set>
+	<set name="topic">unknown</set>
+	</think>
+	Este capitulo ya esta disponible en la plataforma.	
+	<modifymap>
+	  <name><get name="tituloserie"/></name>
+	  <key>temporada<get name="temporada"/></key>
+	  <value><map><name><get name="tituloserie"/></name>temporada<get name="temporada"/></map><get name="primero"/><get name="titulo"/>@<get name="duracion"/></value>
+	</modifymap>
+      </template>
+    </category>
+  </topic>
   
 </aiml>
