@@ -594,6 +594,7 @@
 
   <!-- Reglas que añado desde el guión -->
 
+  <!-- Regla que cambia los espacios por @ -->
   <category>
     <pattern> decode_fields * </pattern>
     <template>
@@ -627,6 +628,31 @@
     </template>
   </category>
 
+  
+  <!-- Regla que concatena una lista de palabras mediante un "@" -->
+  <category>
+    <pattern> code_fields * </pattern>
+    <template> 
+      <think>
+	<set var="tmp"><star/></set>
+	<set var="solucion"><first><get var="tmp"/></first></set>
+	<set var="tmp"><rest><get var="tmp"/></rest></set>
+	<condition var="tmp">
+	  <li value="NIL">
+	  </li>
+	  <li>
+	    <set var="solucion"><get var="solucion"/>@<first><get var="tmp"/></first></set>
+	    <set var="tmp"><rest><get var="tmp"/></rest></set>
+	    <loop/>
+	  </li>
+	</condition>
+      </think>
+      <get var="solucion"/>
+    </template>
+  </category>
+  
+  
+  <!-- Regla que añade Y entre las dos ultimas palabras de una lista -->
   <category>
     <pattern> ANIADEY * </pattern>
     <template>

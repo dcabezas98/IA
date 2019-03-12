@@ -213,7 +213,7 @@
 
   <!-- Pregunta 18: Por que deberiamos escogerte a ti -->
   <category> 
-    <pattern>Por que no [tendriamos deberiamos] ([que de]) +coger a otr+ (persona)</pattern>
+    <pattern>Por que no [tendriamos deberiamos] ([que de]) [contratar +coger] a otr+ (persona)</pattern>
     <template><srai>POR QUE DEBERIAMOS ESCOGERTE</srai></template>
   </category>
 
@@ -223,7 +223,7 @@
   </category>
 
   <category> 
-    <pattern>Por que [tendriamos deberiamos] ([que de]) +cogerte (a ti)</pattern>
+    <pattern>Por que [tendriamos deberiamos] ([que de]) [+cogerte contratarte] (a ti)</pattern>
     <template>Porque llevo 3 anios especializandome en este area, tengo un gran interes en este trabajo y creo que puedo aportar mucho, es la oferta perfecta para mi.</template>
   </category>
 

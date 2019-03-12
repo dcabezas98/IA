@@ -3,7 +3,7 @@
   
 <!-- Consultar sinopsis -->
   <category>
-    <pattern>De que [va trata] (la serie) <set>seriesnetflix</set></pattern>
+    <pattern>De que [va trata] (la serie) [<set>seriesprimevideo</set> <set>seriesnetflix</set>]</pattern>
     <template><srai>DECODE <map><name><star/></name>sinopsis</map></srai></template>
   </category>
 
@@ -37,10 +37,17 @@
   </topic>
 
   <category>
+    <pattern>Anade la serie [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
+    <template>
+      La serie <star/> ya esta en el catalogo.
+    </template>
+  </category>
+
+  <category>
     <pattern>Anade la serie *</pattern>
     <template>
       <think><set name="tituloserie"><star/></set></think>
-      Asegurate de haber creado un archivo llamado <get name="tituloserie"/> en la carpeta maps.
+      Asegurate de haber creado un archivo llamado <get name="tituloserie"/>.txt en la carpeta maps.
       Te voy a preguntar datos sobre la serie <get name="tituloserie"/>. Indicame que plataforma la ofrece.
       <think><set name="topic">plataforma</set></think>
     </template>
@@ -71,7 +78,7 @@
 	      <name><get var="fichero"/></name>
 	      <key><get name="tituloserie"/></key>
 	    </addtoset>
-	    Muy bien, dime a que genero pertenece.
+	    Muy bien, dime a que generos pertenece. (Separa los generos por espacios)
 	    <think><set name="topic">genero</set></think>
 	  </li>
 	  <li>Lo siento, solo conozco las plataformas Netflix y Prime Video.</li>
@@ -87,7 +94,7 @@
 	<addtomap>
 	  <name><get name="tituloserie"/></name>
 	  <key>genero</key>
-	  <value><srai>CODE <star/></srai></value>
+	  <value><srai>CODE_FIELDS <star/></srai></value>
 	</addtomap>
 	Dime de que que va la serie.
 	<think><set name="topic">sinopsis</set></think>
@@ -104,7 +111,7 @@
 	  <key>sinopsis</key>
 	  <value><srai>CODE <star/></srai></value>
 	</addtomap>
-	Dime la lista de idiomas en los que esta disponible el audio de la serie.
+	Dime la lista de idiomas en los que esta disponible el audio de la serie. (Separados por espacios)
 	<think><set name="topic">idiomas</set></think>
       </template>
     </category>
@@ -117,9 +124,9 @@
 	<addtomap>
 	  <name><get name="tituloserie"/></name>
 	  <key>idiomas</key>
-	  <value><srai>CODE <star/></srai></value>
+	  <value><srai>CODE_FIELDS <star/></srai></value>
 	</addtomap>
-	Dime la lista de subtitulos en los que esta disponible la serie.
+	Dime la lista de subtitulos en los que esta disponible la serie. (Separados por espacios)
 	<think><set name="topic">subtitulos</set></think>
       </template>
     </category>
@@ -132,7 +139,7 @@
 	<addtomap>
 	  <name><get name="tituloserie"/></name>
 	  <key>subtitulos</key>
-	  <value><srai>CODE <star/></srai></value>
+	  <value><srai>CODE_FIELDS <star/></srai></value>
 	</addtomap>
 	Si conoces una direccion web de la serie indicamela.
 	<think><set name="topic">web</set></think>
@@ -142,7 +149,7 @@
 
   <topic name="web">
     <category>
-      <pattern>www+</pattern>
+      <pattern>*</pattern>
       <template>
 	<addtomap>
 	  <name><get name="tituloserie"/></name>
@@ -181,9 +188,10 @@
     </category>
   </topic>
 
+  
   <!-- Anadir capiulo -->
   <category>
-    <pattern>[Anade Introduce] un (nuevo) capitulo [de a en] la temporada <set>number</set> de [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
+    <pattern>[Anade Introduce] un (nuevo) capitulo [de a en] la temporada <set>number</set> de (la serie) [<set>seriesnetflix</set> <set>seriesprimevideo</set>]</pattern>
     <template>
       <think>
 	<set name="topic">titcap</set>
@@ -208,13 +216,13 @@
 
   
   <category>
-    <pattern>[Anade Introduce] un nuevo capitulo de la temporada <set>number</set> de *</pattern>
+    <pattern>[Anade Introduce] un nuevo capitulo [de a en] la temporada <set>number</set> de *</pattern>
     <template>
       <think>
-      <set name="tituloserie"><star/></set>
+      <set name="tituloserie"><star index="2"/></set>
       <set name="topic">anadirserie</set>
-      La serie <get name="tituloserie"/> no esta en el catalogo. Quieres anadirla?
       </think>
+      La serie <get name="tituloserie"/> no esta en el catalogo. Quieres anadirla?
     </template>
   </category>
   
@@ -231,6 +239,7 @@
       </template>
     </category>
   </topic>
+  
 
   <topic name="durcap">
     <category>
@@ -249,5 +258,6 @@
       </template>
     </category>
   </topic>
+
   
 </aiml>
