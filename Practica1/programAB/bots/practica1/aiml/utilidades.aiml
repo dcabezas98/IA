@@ -684,5 +684,74 @@
       <get var="solucion"/>
     </template>
   </category>
-  
+
+
+  <!-- Regla que diseño para facilitar las tareas -->
+
+  <!-- Devuelve la suma de los dos argumentos -->
+  <category>
+    <pattern>SUMA <set>number</set> <set>number</set> </pattern>
+    <template> 
+      <think>
+	<set var="n"><star index="1"/></set>
+	<set var="m"><star index="2"/></set>
+	<condition var="m">
+	  <li value="0"></li>
+	  <li>
+	    <set var="n"><map name="successor"><get var="n"/></map></set>
+	    <set var="m"><map name="predecessor"><get var="m"/></map></set>
+	    <loop/>
+	  </li>
+	</condition>
+      </think>
+      <get var="n"/>
+    </template>
+  </category>
+
+
+  <!-- Cuenta parejas de palabras en una lista (la mitad de palabras) -->
+  <category>
+    <pattern>COUNT2 *</pattern>
+    <template>
+      <think>
+	<set var="count">0</set>
+	<set var="list">
+	  <star/>
+	</set>
+	<set var="item">
+	  <srai>TOP <get var="list"/></srai>
+	</set>
+      </think>
+      <condition var="item">
+	<li>
+	  <value>$</value>
+	  <get var="count"/>
+	</li>
+	<li>
+	  <think>	    
+	    <set var="count">
+	      <map>
+		<name>successor</name>
+		<get var="count"/>
+	      </map>
+	    </set>
+	    <set var="list">
+	      <srai>REMAIN <get var="list"/></srai>
+	    </set>
+	    <set var="item">
+	      <srai>TOP <get var="list"/></srai>
+	    </set>
+	    <set var="list">
+	      <srai>REMAIN <get var="list"/></srai>
+	    </set>
+	    <set var="item">
+	      <srai>TOP <get var="list"/></srai>
+	    </set>
+	  </think>
+	  <loop/>
+	</li>
+      </condition>
+    </template>
+  </category>
+
 </aiml>

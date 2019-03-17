@@ -3,4 +3,4 @@ sinopsis:“Fleabag”_es_una_divertida_y_emotiva_ventana_a_la_mente_de_una_muje
 idiomas:aleman@espanol@ingles@frances@portugues@italiano
 subtitulos:espanol@ingles@frances@nerlandes@suomi@indonesio
 web: www.primevideo.com/detail/0OB9NDUVQKFRSYRSCHT2A784TI/ref=atv_hm_hom_c_8pZiqd_2_8
-temporada1:episodio_1@26episodio_2@26@episodio_3@25@episodio_4@26episodio_5@23@episodio_6@25
+temporada1:episodio_1@26@episodio_2@26@episodio_3@25@episodio_4@26@episodio_5@23@episodio_6@25
