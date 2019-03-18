@@ -444,5 +444,57 @@
     </template>
   </category>
 
+
+  <!-- Nombre de un capítulo de una temporada de una serie -->
+
+  <category>
+    <pattern>Como se llama el [capitulo episodio] <set>number</set> de la temporada <set>number</set> de (la serie) [<set>seriesprimevideo</set> <set>seriesnetflix</set>]</pattern>
+    <template>
+      <think>
+	<set var="contador"><star index="1"/></set>
+	<set var="listacapitulos"><srai>DECODE_FIELDS <map><name><star index="3"/></name>temporada<star index="2"/></map></srai></set>
+
+	<condition var="contador">
+	  <li value="1"></li>
+	  <li>
+	    <set var="contador"><map name="predecessor"><get var="contador"/></map></set>
+	    <set var="listacapitulos"><rest><rest><get var="listacapitulos"/></rest></rest></set>
+	    <loop/>
+	  </li>
+	</condition>
+      </think>
+      <condition var="listacapitulos">
+	<li value="NIL">Este capítulo no existe.</li>
+	<li><srai>DECODE <first><get var="listacapitulos"/></first></srai></li>
+      </condition>
+    </template>
+  </category>
+
+
+  <!-- Duración de un capítulo de una derivada de una serie -->
+
+  <category>
+    <pattern>Cuanto+ (minutos) dura el [capitulo episodio] <set>number</set> de la temporada <set>number</set> de (la serie) [<set>seriesprimevideo</set> <set>seriesnetflix</set>]</pattern>
+    <template>
+      <think>
+	<set var="contador"><star index="1"/></set>
+	<set var="listacapitulos"><srai>DECODE_FIELDS <map><name><star index="3"/></name>temporada<star index="2"/></map></srai></set>
+
+	<condition var="contador">
+	  <li value="1"></li>
+	  <li>
+	    <set var="contador"><map name="predecessor"><get var="contador"/></map></set>
+	    <set var="listacapitulos"><rest><rest><get var="listacapitulos"/></rest></rest></set>
+	    <loop/>
+	  </li>
+	</condition>
+      </think>
+      <condition var="listacapitulos">
+	<li value="NIL">Este capítulo no existe.</li>
+	<li><first><rest><get var="listacapitulos"/></rest></first></li>
+      </condition>
+    </template>
+  </category>
+  
   
 </aiml>
