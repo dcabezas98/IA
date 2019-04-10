@@ -105,7 +105,7 @@
 
   <!-- Pregunta 9: Te consideras una persona creativa -->
   <category>
-    <pattern>Crees que eres (una) ([alguien persona]) creativ+</pattern>
+    <pattern>(Crees que) eres (una) ([alguien persona]) creativ+</pattern>
     <template><srai>TE CONSIDERAS UNA PERSONA CREATIVA</srai></template>
   </category>
   
