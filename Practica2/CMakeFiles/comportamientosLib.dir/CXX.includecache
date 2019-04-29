@@ -37,13 +37,15 @@ stack
 -
 queue
 -
-list
+algorithm
 -
 
 /home/dcabezas/Documents/git/IA/Practica2/Comportamientos_Jugador/jugador.hpp
 comportamientos/comportamiento.hpp
 /home/dcabezas/Documents/git/IA/Practica2/Comportamientos_Jugador/comportamientos/comportamiento.hpp
 list
+-
+vector
 -
 
 /home/dcabezas/Documents/git/IA/Practica2/src/comportamientos/comportamiento.cpp
