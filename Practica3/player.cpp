@@ -269,9 +269,9 @@ Environment::ActionType Player::Think(){
 
   // Muestra por la consola las acciones aplicable para el jugador activo
   //actual_.PintaTablero();
-  cout << "JUGADA " << actual_.N_Jugada() << endl;
-  cout << " Acciones aplicables ";
-  (jugador_==1) ? cout << "Verde: " : cout << "Azul: ";
+  // cout << "JUGADA " << actual_.N_Jugada() << endl;
+  // cout << " Acciones aplicables ";
+  // (jugador_==1) ? cout << "Verde: " : cout << "Azul: ";
   for (int t=0; t<8; t++)
     if (aplicables[t])
       cout << " " << actual_.ActionStr( static_cast< Environment::ActionType > (t)  );
@@ -298,7 +298,7 @@ Environment::ActionType Player::Think(){
       
       e = Poda_AlphaBeta(next, PROFUNDIDAD_ALFABETA-1, menosinf, masinf);
 
-      cout << actual_.ActionStr( static_cast< Environment::ActionType > (j)) << " " << e << endl;
+      // cout << actual_.ActionStr( static_cast< Environment::ActionType > (j)) << " " << e << endl;
       
       if(e > mejorE){
 	mejor = j;
@@ -307,14 +307,14 @@ Environment::ActionType Player::Think(){
     }
   }
 
-  if(mejorE < 10000 and aplicables[7] and actual_.N_Jugada()%5==4){
+  if(mejorE < 1000000 and aplicables[7] and actual_.N_Jugada()%5==4){
     mejor = 7;
-    mejorE = 10000;
+    mejorE = 1000000;
   }
 
   accion = static_cast< Environment::ActionType > (mejor);
 
-  cout << "Mejor: " << actual_.ActionStr(accion) << " " << mejorE << endl;
+  // cout << "Mejor: " << actual_.ActionStr(accion) << " " << mejorE << endl;
 
   return accion;
 }

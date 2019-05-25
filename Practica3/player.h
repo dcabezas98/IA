@@ -12,8 +12,8 @@ public:
   static const int PESO3L = 20,
     PESO2L = 5,
     PESOFICHA = 10,
-    PESOBOMBA = 3,
-    PESOBAJO = 50,
+    PESOBOMBA = 5,
+    PESOBAJO = 200,
     PESODESPLAZAR = 3,
     PESOELIMINAR = 4; // Para dar importancia a explotar la bomba para que aparezca la siguiente.
   
