@@ -87,15 +87,15 @@ int GUI::startDraw(int argc,char **argv){
 
 
 	score_glui=GLUI_Master.create_glui_subwindow(main_window,GLUI_SUBWINDOW_BOTTOM);
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		time_step_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		action_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		dirty_degree_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		consumed_energy_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		new GLUI_Column(score_glui,false);
 		new GLUI_Column(score_glui,false);
 		new GLUI_Column(score_glui,false);
@@ -106,23 +106,23 @@ int GUI::startDraw(int argc,char **argv){
 		new GLUI_Column(score_glui,false);
 		new GLUI_Column(score_glui,false);
 		new GLUI_Column(score_glui,false);
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 //		new GLUI_Column(score_glui,false);
 //		new GLUI_Column(score_glui,false);
 //		new GLUI_Column(score_glui,false);
 		complete_runs_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		total_score_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		average_score_text = new GLUI_StaticText(score_glui,"");
-		new GLUI_StaticText(score_glui,"");//以空白行做分隔
+		new GLUI_StaticText(score_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 	   score_glui->set_main_gfx_window( main_window );
 
       main_glui=GLUI_Master.create_glui_subwindow(main_window,GLUI_SUBWINDOW_RIGHT);
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		//new_map_btn=new GLUI_Button(main_glui,"NewMap",NEWMAP_BTN_ID,control_cb);
 		select_map_btn=new GLUI_Button(main_glui,"Opciones",SELECTMAP_BTN_ID,control_cb);
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		do_one_step_btn=new GLUI_Button(main_glui,"Jug. Heuristica",DO_ONE_STEP_BTN_ID,control_cb);
 		do_one_step_btn->disable();
 		do_one_run_btn=new GLUI_Button(main_glui,"Partida Completa",DO_ONE_RUN_BTN_ID,control_cb);
@@ -131,18 +131,18 @@ int GUI::startDraw(int argc,char **argv){
 		//next_run_btn->disable();
 		//do_all_run_btn=new GLUI_Button(main_glui,"DoAllRun",DO_ALL_RUN_BTN_ID,control_cb);
 		//do_all_run_btn->disable();
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		reiniciar_btn=new GLUI_Button(main_glui,"Reiniciar",REINICIAR_BTN_ID,control_cb);
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
-		new GLUI_StaticText(main_glui,"Opciones de Display");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
+		new GLUI_StaticText(main_glui,"Opciones de Display");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		new GLUI_EditText(main_glui,"Pasos:",display_step);
 		//new GLUI_EditText(main_glui,"Time:",display_time);
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		display_btn=new GLUI_Button(main_glui,"Display",DISPLAY_BTN_ID,control_cb);
 		display_btn->disable();
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 		juega_txt =new GLUI_StaticText(main_glui,"");
 		cursor_put1=new GLUI_Button(main_glui,"Col 1",CURSOR_PUT1_BTN_ID,control_cb);
 		cursor_put1->disable();
@@ -168,8 +168,8 @@ int GUI::startDraw(int argc,char **argv){
 		cursor_boom=new GLUI_Button(main_glui,"BOOM",CURSOR_BOOM_BTN_ID,control_cb);
 		cursor_boom->disable();
 
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
-		new GLUI_StaticText(main_glui,"");//以空白行做分隔
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
+		new GLUI_StaticText(main_glui,"");//嚙瘡嚙褐白行做嚙踝蕭嚙篌
 
 		quit_btn = new GLUI_Button(main_glui,"Salir",0,(GLUI_Update_CB)exit );//QUIT
 	main_glui->set_main_gfx_window( main_window );
@@ -447,7 +447,9 @@ void GUI::control_cb(int id){
                            new GLUI_RadioButton( radio1, "Vs mi heuristica" );
                            new GLUI_RadioButton( radio1, "Vs un jugador remoto (yo Cliente)" );
                            new GLUI_RadioButton( radio1, "Vs un jugador remoto (yo Server)" );
-                           new GLUI_RadioButton( radio1, "Vs Ninja" );
+                           new GLUI_RadioButton( radio1, "Vs Ninja 1" );
+                           new GLUI_RadioButton( radio1, "Vs Ninja 2" );
+                           new GLUI_RadioButton( radio1, "Vs Ninja 3" );
 
                 obj_panel2 = new GLUI_Panel( select_map_glui, "Jugador" );
                   radio2 = new GLUI_RadioGroup( obj_panel2,&jugador,2,control_cb );
@@ -567,14 +569,62 @@ void GUI::control_cb(int id){
                 partida_remota=true;
 
 			}
-			else if (modo==4){ // Vs Ninja
+			else if (modo==4){ // Vs Ninja 1
 	            char mensaje[1024];
 
                 Cliente.Establecer_Conexion(field_ip_ninja, "5127");
                 cout << "Empezamos las partida..." << endl;
                 cout << "Enviando mi nick al servidor..." << mi_nick << endl;
                 Cliente.Enviar_Msg(mi_nick);
-                cout << "Le mando que voy a jugar contra el ninja..." << endl;
+                cout << "Le mando que voy a jugar contra el ninja 1 ..." << endl;
+                Cliente.Enviar_Accion('1');
+                cout << "Recibiendo el nick del servidor..." << endl;
+                Cliente.Recibir_Msg(nick_adversario);
+		cout << "Nick Adversario: " << nick_adversario <<endl;
+                cout << "Le mando que soy el jugador " << jugador+1 << endl;
+                if (jugador==0)
+                  Cliente.Enviar_Accion('0');
+                else
+                  Cliente.Enviar_Accion('1');
+
+                cout << "Yo juego con el jugador " << jugador+1 << endl;
+			    select_map_btn->enable();
+			    select_map_glui->close();
+                partida_remota=true;
+
+			}
+      else if (modo==5){ // Vs Ninja 2
+	            char mensaje[1024];
+
+                Cliente.Establecer_Conexion(field_ip_ninja, "5128");
+                cout << "Empezamos las partida..." << endl;
+                cout << "Enviando mi nick al servidor..." << mi_nick << endl;
+                Cliente.Enviar_Msg(mi_nick);
+                cout << "Le mando que voy a jugar contra el ninja 2 ..." << endl;
+                Cliente.Enviar_Accion('1');
+                cout << "Recibiendo el nick del servidor..." << endl;
+                Cliente.Recibir_Msg(nick_adversario);
+		cout << "Nick Adversario: " << nick_adversario <<endl;
+                cout << "Le mando que soy el jugador " << jugador+1 << endl;
+                if (jugador==0)
+                  Cliente.Enviar_Accion('0');
+                else
+                  Cliente.Enviar_Accion('1');
+
+                cout << "Yo juego con el jugador " << jugador+1 << endl;
+			    select_map_btn->enable();
+			    select_map_glui->close();
+                partida_remota=true;
+
+			}
+      else if (modo==6){ // Vs Ninja 3
+	            char mensaje[1024];
+
+                Cliente.Establecer_Conexion(field_ip_ninja, "5129");
+                cout << "Empezamos las partida..." << endl;
+                cout << "Enviando mi nick al servidor..." << mi_nick << endl;
+                Cliente.Enviar_Msg(mi_nick);
+                cout << "Le mando que voy a jugar contra el ninja 3 ..." << endl;
                 Cliente.Enviar_Accion('1');
                 cout << "Recibiendo el nick del servidor..." << endl;
                 Cliente.Recibir_Msg(nick_adversario);

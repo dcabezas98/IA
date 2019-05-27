@@ -14,8 +14,8 @@ public:
     PESOFICHA = 10,
     PESOBOMBA = 5,
     PESOBAJO = 200,
-    PESODESPLAZAR = 3,
-    PESOELIMINAR = 4; // Para dar importancia a explotar la bomba para que aparezca la siguiente.
+    PESODESPLAZAR = 5,
+    PESOELIMINAR = 7;
   
 private:
   

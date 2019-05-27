@@ -307,7 +307,10 @@ Environment::ActionType Player::Think(){
     }
   }
 
-  if(mejorE < 1000000 and aplicables[7] and actual_.N_Jugada()%5==4){
+  if(aplicables[7] and e > 10000000)
+    return static_cast< Environment::ActionType > (7);
+    
+  if(mejorE < 1000000 and aplicables[7] and actual_.N_Jugada()%5==4 and e>-1000000){
     mejor = 7;
     mejorE = 1000000;
   }
