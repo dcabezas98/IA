@@ -707,6 +707,8 @@ void GUI::control_cb(int id){
                          }
                          break;
                  case 4: // Vs ninja
+                 case 5: // Vs ninja
+                 case 6: // Vs ninja
                          if ((env->JugadorActivo()==1 and jugador==0) or (env->JugadorActivo()==2 and jugador==1)){
                               cout << "Jugador Activo: " << env->JugadorActivo() << "  " << mi_nick << endl;
                               do_move(id-501);
@@ -800,6 +802,8 @@ void GUI::doNextMove(){
                 }
                 break;
         case 4: //Vs ninja
+        case 5: //Vs ninja
+        case 6: //Vs ninja
                 if ((env->JugadorActivo()==1 and jugador==0) or (env->JugadorActivo()==2 and jugador==1)){
                     //Peticion automatica de jugada del jugador local
                       player1->Perceive(*env);
@@ -1169,6 +1173,8 @@ void GUI::newGame(){
 
                 break;
         case 4: // Vs Ninja
+        case 5: // Vs Ninja
+        case 6: // Vs Ninja
                 cout << "He llegado aqui al modo ninja" << endl;
                 partida_remota=true;
 
