@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} % page
+                                                             % settings
+\usepackage{amsmath} % provides many mathematical environments & tools
+\usepackage[spanish]{babel}
+\usepackage[doument]{ragged2e}
+
+% Images
+\usepackage{graphicx}
+\usepackage{float}
+
+% Code
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\newcommand{\n}[1]{{\color{gray}#1}}
+\lstset{numbers=left,numberstyle=\small\color{gray}}
+
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{0mm}
+
+
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code in appendix
+  language=C++, % choose the language of the code
+  basicstyle=\fontfamily{pcr}\selectfont\footnotesize\color{black},
+  keywordstyle=\color{darkorange}\bfseries, % style for keywords
+  numbers=left, % where to put the line-numbers
+  numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+  backgroundcolor=\color{white},
+  showspaces=false, % show spaces adding particular underscores
+  showstringspaces=false, % underline spaces within strings
+  showtabs=false, % show tabs within strings adding particular underscores
+  tabsize=2, % sets default tabsize to 2 spaces
+  captionpos=b, % sets the caption-position to bottom
+  breaklines=false, % sets automatic line breaking
+  breakatwhitespace=false, 
+}
+
+\definecolor{darkorange}{rgb}{0.94,0.4,0.0}
+
+\begin{document}
+
+\title{Poda alfa-beta con heurística}
+\author{David Cabezas Berrido}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\section{Objetivo}
+
+El objetivo es programar una inteligencia artificial que juegue a Desconecta 4 Boom, y que use el algoritmo de poda alfa-beta con una heurística. \\
+
+En la memoria explicaré como he implementado el algoritmo y la
+heurística, así como alguna modificación que he realizado.
+
+
+\section{Algoritmo de Poda alfa-beta}
+
+Es una variante del Minimax un algoritmo muy eficaz para explorar los
+caminos que puede seguir una partida en un juego de dos jugadores como
+ajedrez, damas o Desconecta 4 Boom. Se basas en explorar un árbol de
+posibilidades en el que en los niveles pares juega un jugador y es los
+impares otro, se supone que cada jugador realiza el mejor movimiento
+posible. Por tanto, si tenemos una valoración de un estado del juego
+que indica la ventaja de uno de los dos jugadores, ese jugador hará el
+movimiento que maximice esa valoración y su oponente el movimiento que
+la minimice. \\
+
+El algoritmo de Poda alfa-beta incluye una modificación para evitar
+explorar ramas del árbol que presentan una desventaja evitable para
+uno de los jugadores, luego el juego jamás se desarrollará por ese
+camino. Para ello se almacenan:
+\begin{itemize}
+\item El la variable alpha, la puntuación mínima que tiene asegurada
+  el jugador que maximiza. Se inicializa a $-\infty$.
+\item En la variable beta, la puntuación máxima que tiene asegurada el
+  jugador que minimiza. Se inicializa a $+\infty$.
+\end{itemize}
+
+Por tanto, en el momento que alpha supere a beta se estará explorando
+un camino en el que un jugador tiene peor puntuación (para él) de la
+que tenía asegurada y evitará que el juego siga esa rama. \\
+
+Nos es imposible explorar el árbol infinitamente, así que exploramos
+hasta profundidad 8 (4 jugadas de cada jugador por delante de al
+situación actual) o hasta que acabe el juego. Entonces devolvemos la
+valoración heurística del tablero. Un jugador intentará llegar al nodo
+con mayor valoración heurística y el otro al nodo con menor valoración
+heurística. \\
+
+He implementado este algoritmo en la función \texttt{Poda\_AlphaBeta},
+que devuelve al jugador que la llama la puntuación óptima que puede
+conseguir (asegurada). El metodo \texttt{Think} toma la lista de
+tableros a los que se pueden llegar en la siguiente acción desde el
+tablero actual y evalúa la función \texttt{Poda\_AlphaBeta} para cada
+uno de esos tableros, eligiendo la que ofrezca mejor puntuación. \\
+
+En la implementación que he hecho, siempre considero que el jugador al
+que le toca es el que maximiza, por lo que cuando se llama a la
+\texttt{Valoracion}, siempre se llama con el jugador que llamó a la
+función en primera instancia (en el método \texttt{think}).
+
+
+\section{Función Valoración}
+
+La función \texttt{Valoracion} asigna un valor heurístico a un tablero
+para un jugador, y devuelve un valor que es mayor cuanto mayor sea la
+ventaja de ese jugador en ese tablero. Lo que tiene en cuenta es:
+
+\begin{itemize}
+\item \textbf{Si la partida ha terminado:} devuelve $-\infty$ si el
+  jugador que solicita la valoración ha perdido, $+\infty$ si ha
+  ganado y 0 si hay empate.
+
+\item \textbf{El número de 3 en raya:} cuenta el número de 3 en raya
+  que tiene cada jugador. Usa la función \texttt{NenLinea3}, que se
+  auxilia de \texttt{EnLinea3} una modificación del método
+  \texttt{Enlinea} de la clase \texttt{Environment}, que comprueba si
+  hay un 4 en raya. A la diferencia del número de 3 en raya le asigna
+  un peso \texttt{PESO3L}, esto resultará en un número positivo si
+  el enemigo tiene más 3 en raya que nosotros y en un número negativo
+  en caso contrario.
+
+\item \textbf{El número de 2 en raya:} cuenta el número de 2 en raya
+  que tiene cada jugador usando las funciones \texttt{NenLinea2} y
+  \texttt{EnLinea2} de forma análoga al número de 3 en raya. Y le
+  asigna un peso \texttt{PESO2L} a la diferencia. Hay que tener
+  presente que un 3 en raya va a contar como dos 2 en raya.
+
+\item \textbf{El número de fichas} de cada jugador. A la diferencia le
+  asigna un peso \texttt{PESOFICHA}.
+
+\item \textbf{La buena colocación de la bomba:} este valor ya es mayor
+  cuanto mejor colocada esté la bomba del jugador que pide la
+  valoración respecto a la del enemigo y le da un peso de
+  \texttt{PESOBOMBA}. Si no hay bomba devuelve 0, en otro caso:
+  \begin{itemize}
+  \item La puntuación es mayor cuanto más baja esté la bomba, le da
+    una importancia \texttt{PESOBAJO}.
+  \item Es mayor cuanto más fichas del propio jugador van a ser
+    destruidas por la bomba, multiplica por \texttt{PESOELIMINAR}.
+  \item Es mayor cuando más fichas tenga el adversario en la fila
+    superior a la bomba, habrá mayor probabilidad de que sus fichas
+    caigan cuando la bomba explote, multiplica por
+    \texttt{PESODESPLAZAR}.
+  \end{itemize}
+\end{itemize}
+
+Ya sólo queda jugar con los pesos (en \texttt{jugador.h}) e ir
+analizando el comportamiento del jugador.
+
+\section{Problema al equilibrar el peso de la bomba}
+
+\end{document}
