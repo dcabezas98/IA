@@ -50,6 +50,8 @@
 \maketitle
 \tableofcontents
 
+\newpage
+
 \section{Objetivo}
 
 El objetivo es programar una inteligencia artificial que juegue a Desconecta 4 Boom, y que use el algoritmo de poda alfa-beta con una heurística. \\
@@ -153,6 +155,46 @@ ventaja de ese jugador en ese tablero. Lo que tiene en cuenta es:
 Ya sólo queda jugar con los pesos (en \texttt{jugador.h}) e ir
 analizando el comportamiento del jugador.
 
+
 \section{Problema al equilibrar el peso de la bomba}
+
+Le he dado mucha importancia a colocar la bomba bien, ya que en la
+práctica daba buenos resultados. El problema es que la puntuación que
+ofrecía a un tablero el tener la bomba bien colocada, era mayor que la
+puntuación que recibía por la ventaja que producía explotarla. Esto
+resultaba en que nunca explotaba la bomba. \\
+
+En cambio, el hecho de dar poco peso a la colocación de la bomba
+producía en que se la tratara como una ficha normal, y se evitase
+colocar alineada con el resto de fichas. Esto provoca que al explotar
+la bomba no se gane mucha ventaja. \\
+
+Esto podría solucionarse haciendo más pruebas hasta encontrar el
+equilibrio en los pesos deseado, pero hacer una prueba consume mucho
+tiempo. También podría solucionarse si tuviésemos un horizonte de
+búsqueda mayor, para que contase con la bomba próxima o visualizase la victoria. \\
+
+Como ninguna de estas soluciones era factible, ya fuera por mi tiempo
+limitado o por las limitaciones de la práctica, he añadido una
+excepción en la regla del algoritmo de Poda alfa-beta. \\
+
+Si después de calcular las valoraciones (utilizando la Poda alfa-beta)
+de las distintas acciones se dan una serie de características, se
+elige la acción BOOM, ya que la puntuación que recibe por la función
+valoración no hace justicia a lo adecuada que es. Las condiciones son:
+\begin{itemize}
+\item La acción BOOM está disponible (tengo una bomba colocada).
+\item El número de jugada es congruente con 4 módulo 5 (si no detono
+  la bomba ahora, perderé la siguiente).
+\item La acción mejor valorada tiene una valoración por debajo de
+  cierto umbral (puede haber una alternativa muy buena).
+\item La acción BOOM tiene una valoración por encima de cierto umbral
+  (la acción BOOM no me lleva a una derrota casi segura).
+\end{itemize}
+
+Esto rompe con el espíritu del algoritmo de Poda alfa-beta, pero es
+una solución muy simple y rápida al problema y da muy buenos
+resultados. Con este algoritmo he conseguido vencer a los tres ninjas
+tanto como primer jugador, como con el segundo.
 
 \end{document}
